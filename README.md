@@ -10,6 +10,15 @@
 
 So far, I've been running my notebooks on the `swl1` partition, but if we start having resource conflicts then you may have to change `params.sh` to use another partition like `owners` or `gpu`.
 
+## Running forward with virtual environments (written by Amber and Xavier)
+Here is a sort of hacky way to get jupyter notebooks running inside a virtual environment on Sherlock. If anyone has another way to do this without having to automatically load one virtual environment, please contribute!
+
+Steps:
+- Create a virtual environment (ideally in GROUP HOME, but can also do HOME)
+- `pip install jupyter` in the virtual environment
+- In your `load_modules.sh`, include the line `source <PATH_TO_VENV>/bin/activate`. This will automatically activate your venv when you log into Sherlock.
+- Then when you launch forward, your notebook should automatically connect to the venv you've created!
+
 ## What is this?
 Forward sets up an sbatch script on your cluster resource and port forwards it back to your local machine! 
 Useful for jupyter notebook and tensorboard, amongst other things.
