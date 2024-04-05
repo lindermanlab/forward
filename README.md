@@ -15,8 +15,15 @@ Here is a sort of hacky way to get jupyter notebooks running inside a virtual en
 
 Steps:
 - Create a virtual environment (ideally in GROUP HOME, but can also do HOME)
+- In your `bin/activate` file for your venv, you should include these lines to make pip actually install in your venv (see the `best_practices.md` file in the lab manual)
+```
+# aliases to make pip work
+alias pip="PYTHONUSERBASE=<path-to-your-venv>/python pip"
+export PYTHONPATH=$<path-to-your-venv>/python/lib/python3.9/site-packages:$PYTHONPATH
+export PATH=<path-to-your-venv>/python/bin:$PATH
+```
 - `pip install jupyter` in the virtual environment
-- In your `load_modules.sh`, include the line `source <PATH_TO_VENV>/bin/activate`. This will automatically activate your venv when you log into Sherlock.
+- In your `load_modules.sh`, include the line `source <PATH_TO_VENV>/bin/activate`. This will automatically activate your venv when you log into Sherlock. Note that this will only work if in your `.bashrc` you are calling `source load_modules.sh` and also note that you need to be loading the correct venv that you want to use!
 - Then when you launch forward, your notebook should automatically connect to the venv you've created!
 
 ## What is this?
