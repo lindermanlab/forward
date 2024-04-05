@@ -7,6 +7,7 @@
 3. You might also want to copy the `.bashrc` from this repo. It defines helpful aliases and automatically calls `load_modules.sh` when you log in to Sherlock.
 4. Then you should be all set to launch a jupyter notebook by running `bash start.sh jupyter <cluster-dir>` where `cluster-dir` is the directory you want the notebook to be executed from.
 5. Don't forget to stop the notebook when you're done by running `bash end.sh jupyter`.  You can resume a notebook if your computer goes to sleep and port forwarding stops by running `bash resume.sh jupyter`.
+6. Ideally only use an A100 if you really need it for your computations. Otherwise, try to connect to cpu.
 
 So far, I've been running my notebooks on the `swl1` partition, but if we start having resource conflicts then you may have to change `params.sh` to use another partition like `owners` or `gpu`.
 
