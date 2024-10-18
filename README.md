@@ -5,7 +5,7 @@
 1. Follow the instructions in "Setup" below to configure your `params.sh` script and sherlock ssh config. IMPORTANT: if two people who are using forward at the same time have the same port number, there will be issues launching the job. I would recommend choosing a random port number in the range specified when setting up `params.sh`.
 2. Copy `load_modules.sh` from this repo to `$HOME/bin` on sherlock (e.g., using `scp`)
 3. You might also want to copy the `.bashrc` from this repo. It defines helpful aliases and automatically calls `load_modules.sh` when you log in to Sherlock.
-4. Then you should be all set to launch a jupyter notebook by running `bash start.sh jupyter <cluster-dir>` where `cluster-dir` is the directory you want the notebook to be executed from.
+4. Then you should be all set to launch a jupyter notebook by running `bash start.sh jupyter <cluster-dir>` where `cluster-dir` is the directory you want the notebook to be executed from. In this command, `jupyter` will reference the file `/sbatches/jupyter.sbatch` which requests CPU/GPU resources (you can change this).
 5. Don't forget to stop the notebook when you're done by running `bash end.sh jupyter`.  You can resume a notebook if your computer goes to sleep and port forwarding stops by running `bash resume.sh jupyter`.
 6. Ideally only use an A100 if you really need it for your computations. Otherwise, try to connect to cpu.
 
